@@ -2,7 +2,7 @@ const path = require('path');
 
 const web = {
   target: 'web',
-  entry: './lib/index.ts',
+  entry: './index.ts',
   devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

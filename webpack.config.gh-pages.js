@@ -3,7 +3,13 @@ const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './gridworld_dp/index.ts',
+  entry: {
+    index: './index.ts',
+    gridworld_dp: './gridworld_dp/index.ts',
+    gridworld_td: './gridworld_td/index.ts',
+    puckworld: './puckworld/index.ts',
+    waterworld: './waterworld/index.ts',
+  },
   mode: 'production',
   module: {
     rules: [
@@ -41,7 +47,7 @@ module.exports = {
     }
   },
   output: {
-    filename: 'reinforce-browser.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '.gh-pages'),
     libraryTarget: 'umd',
   },

@@ -1,5 +1,4 @@
-import { zeros } from "../../lib/zeros";
-import { DPAgent, IDPAgentOptions } from "../../lib/agents/dp-agent";
+import { DPAgent, IDPAgentOptions } from "@brainjs/rl";
 
 export interface IWorldAgentOpt {
   gh: number;
@@ -28,8 +27,8 @@ export class WorldAgent extends DPAgent {
     this.gs = opt.gs;
 
     // specify some rewards
-    const Rarr = this.Rarr = zeros(this.gs);
-    const T = this.T = zeros(this.gs);
+    const Rarr = this.Rarr = new Float64Array(this.gs);
+    const T = this.T = new Float64Array(this.gs);
     Rarr[55] = 1;
 
     Rarr[54] = -1;

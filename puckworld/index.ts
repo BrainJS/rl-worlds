@@ -6,13 +6,12 @@ import "jquery.flot";
 import * as d3 from "d3";
 import { marked } from "marked";
 import hljs from "highlight.js";
-import katex from "katex";
 import "katex/dist/katex.css";
-
+import "../style.css";
 import { PuckWorld } from "./puck-world";
 
 import * as puckagent from "../agentzoo/puckagent.json";
-import { DQNAgent } from "../lib/agents/dqn-agent";
+import { DQNAgent } from "@brainjs/rl";
 
 import {highlightTex} from "../highlight-tex";
 

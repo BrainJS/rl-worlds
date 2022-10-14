@@ -1,5 +1,4 @@
-import { IQAgentOptions, QAgent } from "../../lib/agents/q-agent";
-import { zeros } from "../../lib/zeros";
+import { IQAgentOptions, QAgent } from "@brainjs/rl";
 
 export interface IWorldAgentState {
   ns: number;
@@ -28,8 +27,8 @@ export class WorldAgent extends QAgent {
     this.gs = opt.gs;
 
     // specify some rewards
-    const Rarr = zeros(this.gs);
-    const T = zeros(this.gs);
+    const Rarr = new Float64Array(this.gs);
+    const T = new Float64Array(this.gs);
     Rarr[55] = 1;
 
     Rarr[54] = -1;

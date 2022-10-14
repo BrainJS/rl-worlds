@@ -12,7 +12,7 @@ module.exports = {
   },
   mode: 'development',
   output: {
-    filename: 'reinforce-browser.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '.dev-server'),
     libraryTarget: 'umd',
   },

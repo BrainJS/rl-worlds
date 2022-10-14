@@ -1,7 +1,7 @@
 // A single agent
 import { Vec } from "../vec";
 import { Eye } from "../eye";
-import {DQNAgent, IDQNAgentOptions} from "../../lib/agents/dqn-agent";
+import { DQNAgent, IDQNAgentOptions } from "@brainjs/rl";
 
 export interface IWorldAgentOptions extends IDQNAgentOptions {
   eyes: number;

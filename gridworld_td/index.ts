@@ -12,6 +12,7 @@ import { select } from "d3";
 import { WorldAgent } from "./agents/world-agent";
 import * as d3 from "d3";
 import {highlightTex} from "../highlight-tex";
+import "../style.css";
 
 hljs.highlightAll();
 

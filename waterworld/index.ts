@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery.flot";
 import hljs from "highlight.js";
 import { marked } from "marked";
+import "../style.css";
 
 import * as wateragent from "../agentzoo/wateragent.json";
 
