@@ -1,9 +1,8 @@
 const path = require('path');
-const webpack = require('webpack');
 
 const web = {
   target: 'web',
-  entry: './gridworld_td/index.ts',
+  entry: './lib/index.ts',
   devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -11,25 +10,17 @@ const web = {
     port: 9000
   },
   mode: 'production',
-  plugins: [
-    // new webpack.ProvidePlugin({
-    //   jQuery: 'jQuery',
-    // }),
-  ],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-    // alias: {
-    //   'jQuery': path.resolve(__dirname, './node_modules/jquery/dist/jquery.js'),
-    // }
+    extensions: ['.ts'],
   },
   output: {
     filename: 'reinforce-browser.js',

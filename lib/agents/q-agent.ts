@@ -1,7 +1,7 @@
 import { zeros } from "../zeros";
 import { setConst, sampleWeighted, randi } from "../utilities";
 
-export interface ITDAgentOptions {
+export interface IQAgentOptions {
   update?: 'qlearn' | 'sarsa';
   gamma?: number;
   epsilon?: number;
@@ -18,7 +18,7 @@ export interface ITDAgentOptions {
 // QAgent uses TD (Q-Learning, SARSA)
 // - does not require environment model :)
 // - learns from experience :)
-export abstract class TDAgent {
+export abstract class QAgent {
   update: string;
   gamma: number;
   epsilon: number;
@@ -39,7 +39,7 @@ export abstract class TDAgent {
   sa_seen: number[];
   pq: number[] | Float64Array;
 
-  constructor(opt: ITDAgentOptions) {
+  constructor(opt: IQAgentOptions) {
     this.update = opt.update ?? 'qlearn'; // qlearn | sarsa
     this.gamma = opt.gamma ?? 0.75; // future reward discount factor
     this.epsilon = opt.epsilon ?? 0.1; // for epsilon-greedy policy

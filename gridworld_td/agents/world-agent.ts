@@ -1,4 +1,4 @@
-import { ITDAgentOptions, TDAgent } from "../../lib/agents/q-agent";
+import { IQAgentOptions, QAgent } from "../../lib/agents/q-agent";
 import { zeros } from "../../lib/zeros";
 
 export interface IWorldAgentState {
@@ -7,13 +7,13 @@ export interface IWorldAgentState {
   reset_episode?: boolean;
 }
 
-export interface IWorldAgentOpts extends ITDAgentOptions {
+export interface IWorldAgentOpts extends IQAgentOptions {
   gw: number;
   gh: number;
   gs: number;
 }
 
-export class WorldAgent extends TDAgent {
+export class WorldAgent extends QAgent {
   V?: number[];
   G?: number[];
   gh: number;
