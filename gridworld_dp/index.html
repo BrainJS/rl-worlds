@@ -180,8 +180,8 @@ It can be shown (see Richard Sutton's book) that performing these updates over a
 
 If you'd like to use the REINFORCEjs Dynamic Programming for your MDP, you have to define an environment object `env` that has a few methods that the DP agent will need:
 
-- `env.getNumStates()` returns an integer of total number of states
-- `env.getMaxNumActions()` returns an integer with max number of actions in any state
+- `env.inputSize` returns an integer of total number of states
+- `env.outputSize()` returns an integer with max number of actions in any state
 - `env.allowedActions(s)` takes an integer `s` and returns a list of available actions, which should be integers from zero to `maxNumActions`
 - `env.nextStateDistribution(s,a)`, which is a misnomer, since right now the library assumes deterministic MDPs that have a single unique new state for every (state, action) pair. Therefore, the function should return a single integer that identifies the next state of the world
 - `env.reward(s,a,ns)`, which returns a float for the reward achieved by the agent for the `s`, `a`, `ns` transition. In the simplest case, the reward is usually based only the state `s`.

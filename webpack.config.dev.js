@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: './',
-    compress: true,
+    compress: false,
     port: 9000
   },
   mode: 'development',

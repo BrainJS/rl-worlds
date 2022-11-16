@@ -174,7 +174,7 @@ export class WaterWorld {
     let update_items = false;
     for(let j=0,m=this.agents.length;j<m;j++) {
       const a = this.agents[j];
-      a.digestion_signal = 0; // important - reset this!
+      a.digestionSignal = 0; // important - reset this!
     }
     for(let i=0,n=this.items.length;i<n;i++) {
       let it = this.items[i];
@@ -192,11 +192,11 @@ export class WaterWorld {
           if(!rescheck) {
             // ding! nom nom nom
             if(it.type === 1) {
-              a.digestion_signal += 1.0; // mmm delicious apple
+              a.digestionSignal += 1.0; // mmm delicious apple
               a.apples++;
             }
             if(it.type === 2) {
-              a.digestion_signal += -1.0; // ewww poison
+              a.digestionSignal += -1.0; // ewww poison
               a.poison++;
             }
             it.cleanup_ = true;

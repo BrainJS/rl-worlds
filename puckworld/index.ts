@@ -239,7 +239,7 @@ function saveAgent() {
 }
 
 function loadAgent() {
-  agent.fromJSON(puckagent); // corss your fingers...
+  agent = new DQNAgent(puckagent);
   // set epsilon to be much lower for more optimal behavior
   agent.epsilon = 0.05;
   $("#slider").slider('value', agent.epsilon);
@@ -257,8 +257,8 @@ function resetAgent(): void {
   const spec = safeJson("#agentspec");
   agent = new DQNAgent({
     ...spec,
-    numStates: 4,
-    maxNumActions: 8,
+    inputSize: 4,
+    outputSize: 8,
   });
 }
 

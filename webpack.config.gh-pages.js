@@ -9,6 +9,7 @@ module.exports = {
     gridworld_td: './gridworld_td/index.ts',
     puckworld: './puckworld/index.ts',
     waterworld: './waterworld/index.ts',
+    'lunar-lander': './lunar-lander/index.ts',
   },
   mode: 'production',
   module: {

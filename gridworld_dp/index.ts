@@ -26,8 +26,8 @@ const gh = 10;  // height in cells
 const gw = 10; // width in cells
 const gs = gw * gh; // total number of cells
 const staticOpts = {
-  numStates: gs,
-  maxNumActions: 4,
+  inputSize: gs,
+  outputSize: 4,
   gamma: 0.9,
   gw,
   gh,

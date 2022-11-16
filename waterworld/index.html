@@ -41,11 +41,11 @@
   "gamma": 0.9,
   "epsilon": 0.2,
   "alpha": 0.005,
-  "experience_add_every": 5,
-  "experience_size": 10000,
-  "learning_steps_per_iteration": 5,
-  "tderror_clamp": 1.0,
-  "num_hidden_units": 100
+  "experienceAddEvery": 5,
+  "experienceSize": 10000,
+  "learningStepsPerIteration": 5,
+  "tderrorClamp": 1.0,
+  "hiddenLayers": [100]
 }</textarea>
       <pre>
 
@@ -54,11 +54,11 @@
   gamma: 0.9, // discount factor, [0, 1)
   epsilon: 0.2, // initial epsilon for epsilon-greedy policy, [0, 1)
   alpha: 0.005, // value function learning rate
-  experience_add_every: 5, // number of time steps before we add another experience to replay memory
-  experience_size: 10000, // size of experience
-  learning_steps_per_iteration: 5,
-  tderror_clamp: 1.0, // for robustness
-  num_hidden_units: 100 // number of neurons in hidden layer
+  experienceAddEvery: 5, // number of time steps before we add another experience to replay memory
+  experienceSize: 10000, // size of experience
+  learningStepsPerIteration: 5,
+  tderrorClamp: 1.0, // for robustness
+  hiddenLayers: [100] // number of neurons in hidden layer
 }
       </pre>
       <div style="text-align:center;">

@@ -193,8 +193,8 @@ Notice that we're performing many more value function updates per step using our
 
 Similar to the DP classes, if you'd like to use the REINFORCEjs TD learning you have to define an environment object `env` that has a few methods that the TD agent will need:
 
-- `env.getNumStates()` returns an integer of total number of states
-- `env.getMaxNumActions()` returns an integer with max number of actions in any state
+- `env.inputSize()` returns an integer of total number of states
+- `env.outputSize()` returns an integer with max number of actions in any state
 - `env.allowedActions(s)` takes an integer `s` and returns a list of available actions, which should be integers from zero to `maxNumActions`
 
 See the GridWorld environment in this demo's source code for an example. The `TDAgent` class assumes a finite MDP (so discrete, finite number of states and actions), and works through a very simple `action = agent.act(state)` and `agent.learn(reward)` interface:

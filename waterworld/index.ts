@@ -90,8 +90,8 @@ function draw() {
 }
 
 // Tick the world
-const smooth_reward_history: number[][] = []; // [][];
-const smooth_reward: number[] = [];
+const smoothRewardHistory: number[][] = []; // [][];
+const smoothReward: number[] = [];
 let flott: number = 0;
 function tick() {
   if (simspeed === 3) {
@@ -106,15 +106,15 @@ function tick() {
 
   flott += 1;
   for (let i = 0; i < w.agents.length; i++) {
-    const rew = w.agents[i].last_reward;
-    if (!smooth_reward[i]) { smooth_reward[i] = 0; }
-    smooth_reward[i] = smooth_reward[i] * 0.999 + rew * 0.001;
+    const rew = w.agents[i].lastReward;
+    if (!smoothReward[i]) { smoothReward[i] = 0; }
+    smoothReward[i] = smoothReward[i] * 0.999 + rew * 0.001;
     if (flott === 50) {
       // record smooth reward
-      if (smooth_reward_history[i].length >= nflot) {
-        smooth_reward_history[i] = smooth_reward_history[i].slice(1);
+      if (smoothRewardHistory[i].length >= nflot) {
+        smoothRewardHistory[i] = smoothRewardHistory[i].slice(1);
       }
-      smooth_reward_history[i].push(smooth_reward[i]);
+      smoothRewardHistory[i].push(smoothReward[i]);
     }
   }
   if (flott === 50) {
@@ -174,11 +174,11 @@ function initFlot() {
 function getFlotRewards(agentId: number): Array<[number, number]> {
   // zip rewards into flot data
   const res: Array<[number, number]> = [];
-  if (agentId >= w.agents.length || !smooth_reward_history[agentId]) {
+  if (agentId >= w.agents.length || !smoothRewardHistory[agentId]) {
     return res;
   }
-  for (let i = 0, n = smooth_reward_history[agentId].length; i < n; i++) {
-    res.push([i, smooth_reward_history[agentId][i]]);
+  for (let i = 0, n = smoothRewardHistory[agentId].length; i < n; i++) {
+    res.push([i, smoothRewardHistory[agentId][i]]);
   }
   return res;
 }
@@ -268,7 +268,7 @@ function enableHuman() {
     let a = new HumanAgent({ eyes });
     a.humanAction = humanAction;
     w.agents.push(a);
-    smooth_reward_history.push([]);
+    smoothRewardHistory.push([]);
   }
 }
 function resetAgent() {
@@ -281,8 +281,7 @@ function resetAgent() {
 }
 
 function loadAgent() {
-  const agent = w.agents[0];
-  agent.fromJSON(wateragent); // corss your fingers...
+  const agent = w.agents[0] = new WorldAgent({ ...wateragent, eyes }); // corss your fingers...
   // set epsilon to be much lower for more optimal behavior
   agent.epsilon = 0.05;
   $('#slider').slider('value', agent.epsilon);
@@ -304,7 +303,7 @@ $(function start() {
   w = new WaterWorld(canvas);
   for(let k = 0; k < 1; k++) {
     w.addAgent(new WorldAgent({ ...spec, eyes, }));
-    smooth_reward_history.push([]);
+    smoothRewardHistory.push([]);
   }
 
   const slider = $('#slider');
@@ -333,7 +332,7 @@ $(function start() {
 
 function updateStats() {
   const stats = ['<ul>'];
-  for(let i = 0; i < w.agents.length; i++) {
+  for (let i = 0; i < w.agents.length; i++) {
     const agent = w.agents[i];
     stats.push(`<li>Player ${ (i+1) }: ${ agent.apples } apples, ${ agent.poison } poison</li>`);
   }

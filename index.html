@@ -75,8 +75,8 @@ import { DQNAgent } from "rl";
 
 // create MyAgent class
 class MyAgent extends DQNAgent {
-  get numStates() { return 8; }
-  get maxNumActions() { return 4; }
+  get inputSize() { return 8; }
+  get outputSize() { return 4; }
 }
 
 // instantiate the agent
