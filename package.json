@@ -1,5 +1,5 @@
 {
-  "name": "@brainjs/rl-worlds",
+  "name": "@brains/rl-worlds",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "serve": "webpack-dev-server --config webpack.config.dev.js --open"
